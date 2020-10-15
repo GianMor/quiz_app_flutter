@@ -19,16 +19,16 @@ class _MyAppState extends State<MyApp> {
 
   var questions = [
     {
-      'questionText' : 'What\'s your favorite color?',
-      'answer' : [ 'Black' , 'Red' , 'Green' , 'White' ],
+      'questionText': 'What\'s your favorite color?',
+      'answer': ['Black', 'Red', 'Green', 'White'],
     },
     {
-      'questionText' : 'What\'s your favorite animal?',
-      'answer' : [ 'Rabbit' , 'Snake' , 'Elephant' , 'Lion' ],
+      'questionText': 'What\'s your favorite animal?',
+      'answer': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
     },
     {
-      'questionText' : 'What\'s your favorite water?',
-      'answer' : [ 'Letizia' , 'Guizza' , 'Dolomia' , 'None' ],
+      'questionText': 'What\'s your favorite water?',
+      'answer': ['Letizia', 'Guizza', 'Dolomia', 'None'],
     },
   ];
 
@@ -44,12 +44,14 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text("Quiz App"),
         ),
-        body: Column(
+        body: _questionIndex < questions.length ? Column(
           children: <Widget>[
             Question(questions[_questionIndex]['questionText']),
-            ...(questions[_questionIndex]['answer'] as List<String>).map((answer) => Answer(_answerQuestion,answer)).toList()
+            ...(questions[_questionIndex]['answer'] as List<String>)
+                .map((answer) => Answer(_answerQuestion, answer))
+                .toList()
           ],
-        ),
+        ) : Center(child: Text("You did it")),
       ),
     );
   }
