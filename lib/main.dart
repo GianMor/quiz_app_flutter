@@ -22,15 +22,30 @@ class _MyAppState extends State<MyApp> {
   var _questions = [
     {
       'questionText': 'What\'s your favorite color?',
-      'answer': ['Black', 'Red', 'Green', 'White'],
+      'answer': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 2},
+        {'text': 'White', 'score': 1}
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answer': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'answer': [
+        {'text': 'Rabbit', 'score': 10},
+        {'text': 'Snake', 'score': 5},
+        {'text': 'Elephant', 'score': 2},
+        {'text': 'Lion', 'score': 1}
+      ],
     },
     {
       'questionText': 'What\'s your favorite water?',
-      'answer': ['Letizia', 'Guizza', 'Dolomia', 'None'],
+      'answer': [
+        {'text': 'Letizia', 'score': 10},
+        {'text': 'Guizza', 'score': 5},
+        {'text': 'Dolomia', 'score': 2},
+        {'text': 'None', 'score': 1}
+      ],
     },
   ];
 
@@ -42,7 +57,11 @@ class _MyAppState extends State<MyApp> {
           title: Text("Quiz App"),
         ),
         body: _questionIndex < _questions.length
-            ? Quiz(answerQuestion: _answerQuestion, questionIndex: _questionIndex, questions: _questions,)
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
             : Result(),
       ),
     );
